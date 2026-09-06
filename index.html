@@ -1,22 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta ttp-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Realizando Pruebas</title>
+    <title>Foro Git &amp; GitHub</title>
 </head>
 <body>
-    <div class="bar">
-        <img class="logo"src="img/git.png">
-        <h1>Blog Curso Git</h1>
-    </div>
-    <div>
-        El contenido iría aquí.
-    </div>
+
+    <header class="bar">
+        <div class="brand">
+            <img class="logo" src="img/git.png" alt="Logo Git">
+            <h1>Foro Curso Git</h1>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" id="mainNav">
+            <a href="#inicio" class="nav-link active">Inicio</a>
+            <a href="#categorias" class="nav-link">Categorías</a>
+            <a href="#foro" class="nav-link">Foro</a>
+            <a href="#recursos" class="nav-link">Recursos</a>
+            <a href="#acerca" class="nav-link">Acerca de</a>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <h2>Aprende Git y GitHub desde cero</h2>
+        <p>Un espacio para resolver dudas, compartir trucos y aprender en comunidad sobre control de versiones.</p>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar un tema... (ej: merge, ramas, commit)">
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <strong id="statTemas">0</strong>
+                <span>Temas</span>
+            </div>
+            <div class="stat">
+                <strong id="statRespuestas">0</strong>
+                <span>Respuestas</span>
+            </div>
+            <div class="stat">
+                <strong id="statCategorias">0</strong>
+                <span>Categorías</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="categorias" class="categorias">
+        <h2>Categorías</h2>
+        <div class="category-grid" id="categoryGrid">
+            <!-- Las categorías se generan dinámicamente con JS -->
+        </div>
+    </section>
+
+    <section id="foro" class="foro">
+        <div class="foro-header">
+            <h2>Temas del foro</h2>
+            <button id="btnNuevoTema" class="btn-primary">+ Nuevo tema</button>
+        </div>
+
+        <div class="filtros" id="filtros">
+            <button class="filtro-btn active" data-filtro="todos">Todos</button>
+            <!-- filtros por categoría generados por JS -->
+        </div>
+
+        <form id="formNuevoTema" class="form-nuevo-tema" hidden>
+            <input type="text" id="inputTitulo" placeholder="Título del tema" required maxlength="80">
+            <select id="inputCategoria" required></select>
+            <textarea id="inputContenido" placeholder="Escribe tu pregunta o comentario..." required maxlength="500"></textarea>
+            <div class="form-acciones">
+                <button type="submit" class="btn-primary">Publicar</button>
+                <button type="button" id="btnCancelarTema" class="btn-secundario">Cancelar</button>
+            </div>
+        </form>
+
+        <ul id="listaTemas" class="lista-temas"></ul>
+
+        <p id="sinResultados" class="sin-resultados" hidden>No se encontraron temas para tu búsqueda.</p>
+    </section>
+
+    <section id="recursos" class="recursos">
+        <h2>Recursos recomendados</h2>
+        <ul class="recursos-lista">
+            <li><a href="https://docs.github.com/es" target="_blank" rel="noopener">Documentación oficial de GitHub</a></li>
+            <li><a href="https://git-scm.com/book/es/v2" target="_blank" rel="noopener">Pro Git (libro gratuito)</a></li>
+            <li><a href="https://education.github.com/git-cheat-sheet-education.pdf" target="_blank" rel="noopener">Cheat Sheet de comandos Git</a></li>
+            <li><a href="https://skills.github.com/" target="_blank" rel="noopener">GitHub Skills (cursos interactivos)</a></li>
+        </ul>
+    </section>
+
+    <section id="acerca" class="acerca">
+        <h2>Acerca de este foro</h2>
+        <p>Este proyecto nació como parte de un curso práctico sobre Git y GitHub. La idea es tener un lugar sencillo donde repasar conceptos, compartir dudas y aprender en comunidad, sin necesidad de un backend complejo.</p>
+    </section>
+
+    <footer class="footer">
+        <p>Foro Curso Git &mdash; hecho con fines educativos.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
